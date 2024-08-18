@@ -18,7 +18,7 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             for (int j = 1; j < n+1; j++) {
                 num[i][j] = Integer.parseInt(st.nextToken());
-                sum[i][j] = sum[i][j-1] + num[i][j];
+                sum[i][j] = sum[i][j-1] + sum[i-1][j] - sum[i-1][j-1] + num[i][j];
             }
         }
 
@@ -30,11 +30,8 @@ public class Main {
             int x2 = Integer.parseInt(st.nextToken());
             int y2 = Integer.parseInt(st.nextToken());
 
-            int total = 0;
-            for (int row = x1; row <= x2; row++) {
-                total += (sum[row][y2] - sum[row][y1-1]);
-            }
-            answer.append(total).append("\n");
+            int solved = sum[x2][y2] - sum[x1-1][y2] - sum[x2][y1-1] + sum[x1-1][y1-1];
+            answer.append(solved).append("\n");
         }
 
         bw.write(answer + "");
