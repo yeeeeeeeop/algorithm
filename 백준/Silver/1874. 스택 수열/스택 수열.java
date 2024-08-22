@@ -10,8 +10,6 @@ class Solution {
         StringBuilder answer = new StringBuilder();
 
         int n = Integer.parseInt(br.readLine());
-        boolean cannot = false;
-
         Stack<Integer> stack = new Stack<>();
 
         int num = 1;
