@@ -3,20 +3,21 @@ import java.util.*;
 class Solution {
 
     public void solve() {
+        
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
-        Deque<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
         for (int i = 1; i <= n; i++) {
-            queue.addLast(i);
+            queue.add(i);
         }
 
         while (queue.size() > 1) {
-            queue.removeFirst();
-            queue.addLast(queue.removeFirst());
+            queue.poll();
+            queue.add(queue.poll());
         }
 
-        System.out.print(queue.removeFirst());
+        System.out.print(queue.poll());
     }
 }
 
