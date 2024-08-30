@@ -5,6 +5,7 @@ public class Main {
 
     static ArrayList<Integer>[] graph;
     static boolean[] visited;
+    static int count = 0;
 
     public static void main(String[] args) throws IOException {
 
@@ -13,7 +14,6 @@ public class Main {
 
         int n = Integer.parseInt(input.nextToken());
         int m = Integer.parseInt(input.nextToken());
-        int count = 0;
 
         graph = new ArrayList[n+1];
         visited = new boolean[n+1];
@@ -32,24 +32,21 @@ public class Main {
         }
 
         for (int i = 1; i <= n; i++) {
-            boolean result = dfs(i);
-            if (result) count++;
+            if (!visited[i]) count++;
+            dfs(i);
         }
 
         System.out.println(count);
     }
 
-    static boolean dfs(int start) {
+    static void dfs(int start) {
         if (visited[start]) {
-            return false;
+            return;
         }
 
         visited[start] = true;
-        while (!graph[start].isEmpty()) {
-            int end = graph[start].remove(0);
-            dfs(end);
+        for (int num : graph[start]) {
+            dfs(num);
         }
-
-        return true;
     }
 }
