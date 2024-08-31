@@ -1,10 +1,9 @@
 import java.util.*;
-import java.io.*;
 
 public class Main {
     static int n;
     static int[] starts = {2, 3, 5, 7};
-    static int[] odds = {1, 3, 5, 7, 9};
+    static int[] odds = {1, 3, 7, 9};
     static ArrayList<Integer> answers = new ArrayList<>();
 
     public static void main(String[] args) {
